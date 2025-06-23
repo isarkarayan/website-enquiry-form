@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Globe } from 'lucide-react';
+import { ArrowLeft, Code } from 'lucide-react';
 import { Layout } from '../components/Layout';
 
 export function PrivacyPolicy() {
@@ -17,10 +17,13 @@ export function PrivacyPolicy() {
           </Link>
           
           <div className="flex items-center space-x-3 mb-6">
-            <div className="bg-blue-600 p-2 rounded-lg">
-              <Globe className="w-6 h-6 text-white" />
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
+              <Code className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-slate-900">Privacy Policy</h1>
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900">Privacy Policy</h1>
+              <p className="text-slate-600">WebCraft Solutions</p>
+            </div>
           </div>
         </div>
 
@@ -60,8 +63,13 @@ export function PrivacyPolicy() {
 
           <h2>Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us through our 
-            enquiry form or email.
+            If you have any questions about this Privacy Policy, please contact us at{' '}
+            <a href="mailto:support@webcraftsolutions.com" className="text-blue-600 hover:text-blue-700">
+              support@webcraftsolutions.com
+            </a> or through our{' '}
+            <Link to="/support" className="text-blue-600 hover:text-blue-700">
+              support page
+            </Link>.
           </p>
         </div>
       </div>
