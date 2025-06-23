@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Monitor, Send, CheckCircle, Code } from 'lucide-react';
+import { Monitor, Send, CheckCircle, Globe } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Layout } from '../components/Layout';
 
@@ -109,19 +109,26 @@ export function EnquiryForm() {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        {/* Header Section with Logo */}
+        {/* Header Section */}
         <div className="text-center mb-12">
-          {/* Logo */}
           <div className="flex justify-center mb-6">
-            <div className="flex items-center space-x-3">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
-                <Code className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-left">
-                <h1 className="text-2xl font-bold text-slate-900">WebCraft Solutions</h1>
-                <p className="text-sm text-slate-600">Crafting Digital Excellence</p>
-              </div>
+            <div className="bg-blue-600 p-3 rounded-full">
+              <Globe className="w-8 h-8 text-white" />
             </div>
+          </div>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">
+            Get Your Website Built
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Tell us about your project and we'll create a stunning, professional website tailored to your needs.
+          </p>
+        </div>
+
+        {/* Hero Image */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-center">
+            <Monitor className="w-24 h-24 text-white mx-auto mb-4" />
+            <p className="text-white font-medium">Professional Web Development</p>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
-import { LogIn, Lock, Mail, Code } from 'lucide-react';
+import { LogIn, Lock, Mail, Globe } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Layout } from '../components/Layout';
 
@@ -37,14 +37,8 @@ export function Login() {
         <div className="max-w-md w-full">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="flex items-center space-x-3">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
-                  <Code className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-left">
-                  <h1 className="text-xl font-bold text-slate-900">WebCraft Solutions</h1>
-                  <p className="text-xs text-slate-600">Crafting Digital Excellence</p>
-                </div>
+              <div className="bg-blue-600 p-3 rounded-full">
+                <Globe className="w-8 h-8 text-white" />
               </div>
             </div>
             <h2 className="text-3xl font-bold text-slate-900">Admin Login</h2>
