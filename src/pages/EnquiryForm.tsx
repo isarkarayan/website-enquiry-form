@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Monitor, Send, CheckCircle, Code } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Layout } from '../components/Layout';
+import { trackFormSubmission, trackEvent } from '../lib/analytics';
 
 interface FormData {
   name: string;
@@ -58,6 +59,10 @@ export function EnquiryForm() {
         throw error;
       }
 
+      // Track form submission
+      trackFormSubmission('enquiry_form');
+      trackEvent('form_submit', 'enquiry', formData.websiteType);
+
       setShowThankYou(true);
       
       // Reset form
@@ -75,6 +80,8 @@ export function EnquiryForm() {
 
     } catch (error) {
       console.error('Error submitting enquiry:', error);
+      // Track error
+      trackEvent('form_error', 'enquiry', 'submission_failed');
       alert('There was an error submitting your enquiry. Please try again.');
     } finally {
       setIsSubmitting(false);

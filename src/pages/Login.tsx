@@ -3,6 +3,7 @@ import { Navigate, Link } from 'react-router-dom';
 import { LogIn, Lock, Mail, Code } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Layout } from '../components/Layout';
+import { trackEvent } from '../lib/analytics';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -26,6 +27,9 @@ export function Login() {
     
     if (error) {
       setError(error.message);
+      trackEvent('login_error', 'authentication', error.message);
+    } else {
+      trackEvent('login_success', 'authentication', 'admin_login');
     }
     
     setIsLoading(false);
@@ -120,6 +124,7 @@ export function Login() {
               <Link 
                 to="/" 
                 className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                onClick={() => trackEvent('click', 'navigation', 'back_to_enquiry_form')}
               >
                 Back to Enquiry Form
               </Link>
